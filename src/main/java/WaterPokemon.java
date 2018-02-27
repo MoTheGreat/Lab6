@@ -1,3 +1,5 @@
+import java.security.PrivateKey;
+
 /**
  * Our specialty WaterPokemon that inherits from our Pokemon class.
  */
@@ -61,6 +63,12 @@ public class WaterPokemon extends Pokemon {
      * Implement this.
      */
     public boolean attack(final Pokemon opponent) {
+        if (opponent.getHitPoints() > 0 && opponent.pokeType != (Pokemon.PokemonType.WATER)
+                && specialtyProbability > Math.random()) {
+            System.out.println(specialtyAttack);
+            opponent.setHitPoints(0);
+            return true;
+        }
         return false;
     }
 
